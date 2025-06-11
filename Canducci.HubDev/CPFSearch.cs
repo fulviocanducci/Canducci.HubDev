@@ -4,16 +4,16 @@ using System;
 using System.Threading.Tasks;
 namespace Canducci.HubDev
 {
-    public sealed class CPFSearch
+    public sealed class CpfSearch
     {
         private readonly UrlAddress _urlAddress = UrlAddress.Instance;
         private readonly HttpClient _httpClient = HttpClient.Instance;
         private readonly HubDev _hubDev;
-        public CPFSearch(HubDev hubDev)
+        public CpfSearch(HubDev hubDev)
         {
             _hubDev = hubDev;
         }
-        public CPFSearch(string token)
+        public CpfSearch(string token)
         {
             _hubDev = new HubDev(token);
         }
