@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 namespace Canducci.HubDev.Responses
 {
-    public class CpfResponse: BaseResponse<CpfItem>
+    public class CpfResponse: BaseResponseAbstract<CpfItem>
     {
         [JsonConstructor()]
         public CpfResponse(bool status, string returnMessage, int consumed, CpfItem result)

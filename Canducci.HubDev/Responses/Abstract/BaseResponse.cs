@@ -2,9 +2,9 @@
 
 namespace Canducci.HubDev.Responses
 {
-    public abstract class BaseResponse<T>
+    public abstract class BaseResponseAbstract<T>
     {
-        protected BaseResponse(bool status, string returnMessage, int consumed, T result)
+        protected BaseResponseAbstract(bool status, string returnMessage, int consumed, T result)
         {
             Status = status;
             ReturnMessage = returnMessage;
