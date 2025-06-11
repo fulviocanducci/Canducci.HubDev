@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.HubDev", "Canducci.HubDev\Canducci.HubDev.csproj", "{91EA26BE-4CD8-432C-9E68-3CAEF315BAAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91EA26BE-4CD8-432C-9E68-3CAEF315BAAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EA26BE-4CD8-432C-9E68-3CAEF315BAAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EA26BE-4CD8-432C-9E68-3CAEF315BAAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EA26BE-4CD8-432C-9E68-3CAEF315BAAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B338500-25B4-4389-9154-2A93118A5DE5}
+	EndGlobalSection
+EndGlobal
