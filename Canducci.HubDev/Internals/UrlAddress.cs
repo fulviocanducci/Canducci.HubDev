@@ -3,12 +3,17 @@ namespace Canducci.HubDev.Internals
 {
     internal class UrlAddress
     {
-        private readonly string UrlCNPJ = "http://ws.hubdodesenvolvedor.com.br/v2/cnpj/?cnpj={0}&token={1}";
-        private readonly string UrlCPF = "https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={0}&data={1}&token={2}";
-        private readonly string UrlCEP = "https://ws.hubdodesenvolvedor.com.br/v2/cep3/?cep={0}&token={1}";
+        private const string UrlCNPJ = "http://ws.hubdodesenvolvedor.com.br/v2/cnpj/?cnpj={0}&token={1}";
+        private const string UrlCNPJWithIE = "http://ws.hubdodesenvolvedor.com.br/v2/cnpj/?cnpj={0}&token={1}&ie=1";
+        private const string UrlCPF = "https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={0}&data={1}&token={2}";
+        private const string UrlCEP = "https://ws.hubdodesenvolvedor.com.br/v2/cep3/?cep={0}&token={1}";
         internal string GetUrlCNPJ(string cnpj, string token)
         {
             return string.Format(UrlCNPJ, cnpj, token);
+        }
+        internal string GetUrlCNPJWithIE(string cnpj, string token)
+        {
+            return string.Format(UrlCNPJWithIE, cnpj, token);
         }
         internal string GetUrlCPF(string cpf, DateTime birthdata, string token)
         {
