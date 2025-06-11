@@ -1,11 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>net470;net472;net48;net481;netstandard2.0;netstandard2.1</TargetFrameworks>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
+	<PropertyGroup>
+		<TargetFrameworks>net470;net472;net48;net481;netstandard2.0;netstandard2.1</TargetFrameworks>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Canducci HubDev</Title>
+		<Authors>Canducci</Authors>
+		<Version>1.0.1</Version>
+		<Company>Canducci</Company> 
+		<Description>Canducci HubDev</Description>
+		<Copyright>Canducci HubDev</Copyright>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<RepositoryUrl>https://github.com/fulviocanducci/Canducci.HubDev</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/fulviocanducci/Canducci.HubDev</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageIcon>ico.png</PackageIcon>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\LICENSE.txt">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+		<None Include="ico.png" Pack="true" PackagePath="\" />
+		<None Include="..\readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>	
 </Project>
