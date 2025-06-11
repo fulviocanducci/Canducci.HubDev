@@ -1,48 +1,27 @@
 ﻿using Newtonsoft.Json;
 namespace Canducci.HubDev.Responses
-{    
+{  
     public class ZipCodeResponse
     {
         [JsonConstructor()]
-        public ZipCodeResponse(string zip, string street, string complement, string neighborhood, string city, string state, string unit, string ibgeCode, string giaCode)
+        public ZipCodeResponse(bool status, string returnMessage, int consumed, ZipCodeItem result)
         {
-            Zip = zip;
-            Street = street;
-            Complement = complement;
-            Neighborhood = neighborhood;
-            City = city;
-            State = state;
-            Unit = unit;
-            IbgeCode = ibgeCode;
-            GiaCode = giaCode;
+            Status = status;
+            ReturnMessage = returnMessage;
+            Consumed = consumed;
+            Result = result;
         }
 
-        [JsonProperty("cep")]
-        public string Zip { get; private set; }
+        [JsonProperty("status")]
+        public bool Status { get; private set; }
 
-        [JsonProperty("logradouro")]
-        public string Street { get; private set; }
+        [JsonProperty("return")]
+        public string ReturnMessage { get; private set; }
 
-        [JsonProperty("complemento")]
-        public string Complement { get; private set; }
+        [JsonProperty("consumed")]
+        public int Consumed { get; private set; }
 
-        [JsonProperty("bairro")]
-        public string Neighborhood { get; private set; }
-
-        [JsonProperty("localidade")]
-        public string City { get; private set; }
-
-        [JsonProperty("uf")]
-        public string State { get; private set; }
-
-        [JsonProperty("unidade")]
-        public string Unit { get; private set; }
-
-        [JsonProperty("ibge")]
-        public string IbgeCode { get; private set; }
-
-        [JsonProperty("gia")]
-        public string GiaCode { get; private set; }
+        [JsonProperty("result")]
+        public ZipCodeItem Result { get; private set; }
     }
-
 }
