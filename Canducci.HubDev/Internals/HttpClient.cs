@@ -29,15 +29,22 @@ namespace Canducci.HubDev.Internals
             }
         }
 
-        public Task<string> GetStringAsync(string url)
+        public async Task<string> GetStringAsync(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "GET";
+            request.Method = "GET";            
+            string result = null;
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
-                return reader.ReadToEndAsync();
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        result = await reader.ReadToEndAsync();
+                    }
+                }
             }
+            return result;
         }
 
         public async Task<T> GetObjectAsync<T>(string url)
