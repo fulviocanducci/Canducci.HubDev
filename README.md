@@ -3,7 +3,7 @@
 
 #### Instalação do Pacote
 ```bash
-dotnet add package Canducci.HubDev --version 1.0.1
+dotnet add package Canducci.HubDev --version 1.0.3
 ```
 
 #### Utilização do Pacote
