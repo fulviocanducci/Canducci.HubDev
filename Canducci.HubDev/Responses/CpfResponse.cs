@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 namespace Canducci.HubDev.Responses
-{  
-    public class ZipCodeResponse: BaseResponse<ZipCodeItem>
+{
+    public class CpfResponse: BaseResponse<CpfItem>
     {
         [JsonConstructor()]
-        public ZipCodeResponse(bool status, string returnMessage, int consumed, ZipCodeItem result)
+        public CpfResponse(bool status, string returnMessage, int consumed, CpfItem result)
             :base(status, returnMessage, consumed, result)
         {
         }
     }
+
 }
