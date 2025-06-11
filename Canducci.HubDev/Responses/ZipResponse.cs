@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 namespace Canducci.HubDev.Responses
 {  
-    public class ZipCodeResponse: BaseResponseAbstract<ZipCodeItem>
+    public class ZipResponse: BaseResponseAbstract<ZipCodeItem>
     {
         [JsonConstructor()]
-        public ZipCodeResponse(bool status, string returnMessage, int consumed, ZipCodeItem result)
+        public ZipResponse(bool status, string returnMessage, int consumed, ZipCodeItem result)
             :base(status, returnMessage, consumed, result)
         {
         }
