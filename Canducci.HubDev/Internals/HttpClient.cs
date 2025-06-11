@@ -7,10 +7,8 @@ namespace Canducci.HubDev.Internals
     internal class HttpClient
     {
         internal HttpClient() { }
-
         private static readonly object _lock = new object();
         private static HttpClient _instance;
-
         public static HttpClient Instance
         {
             get
@@ -33,7 +31,7 @@ namespace Canducci.HubDev.Internals
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";            
-            string result = null;
+            string result = null;            
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
                 if (response.StatusCode == HttpStatusCode.OK)
