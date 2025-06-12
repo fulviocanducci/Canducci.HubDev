@@ -1,6 +1,7 @@
 ﻿using Canducci.HubDev;
 using DotNetEnv;
 using System;
+using System.IO;
 namespace CslAppTest
 {
     internal class Program
@@ -9,7 +10,8 @@ namespace CslAppTest
         {
             try
             {
-                Env.Load();
+                
+                Env.Load();                
                 string apiKey = Environment.GetEnvironmentVariable("HUB_DEV");
                 //
                 HubDev hubDev = new HubDev(apiKey);

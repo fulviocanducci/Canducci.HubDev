@@ -3,13 +3,13 @@
   <PropertyGroup>
 	  <TargetFrameworks>net470;net472;net48;net481;netstandard2.0;netstandard2.1</TargetFrameworks>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	  <Title>Canducci HubDev</Title>
+	  <Title>Canducci HubDev Web Extension</Title>
 	  <Authors>Canducci</Authors>
-	  <Version>1.0.2</Version>
+	  <AssemblyVersion>1.0.3</AssemblyVersion>
+	  <Version>1.0.3</Version>
 	  <Company>Canducci</Company>
 	  <Description>Canducci HubDev</Description>
-	  <Copyright>Canducci HubDev</Copyright>
-	  <AssemblyVersion>1.0.2</AssemblyVersion>
+	  <Copyright>Canducci HubDev</Copyright>	  
 	  <RepositoryUrl>https://github.com/fulviocanducci/Canducci.HubDev</RepositoryUrl>
 	  <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.HubDev</PackageProjectUrl>
 	  <RepositoryType>git</RepositoryType>
