@@ -1,0 +1,29 @@
+name: Publish NuGet Package
+
+on:
+  workflow_dispatch:  # Permite acionar manualmente via GitHub
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Setup do .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x' # ou 6.x / 7.x, conforme seu projeto
+
+      - name: Restaurar dependências
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Empacotar
+        run: dotnet pack --configuration Release --no-build -o ./nupkg
+
+      - name: Publicar no NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
