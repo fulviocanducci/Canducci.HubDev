@@ -12,6 +12,12 @@ dotnet add package Canducci.HubDev.Web
 
 #### Configurar esse pacote é uma aplicação Web.
 
+Utilize a importação da seguinte forma:
+
+```csharp
+using Canducci.HubDev.Web.Extensions;
+```
+
 Depois de: `var builder = WebApplication.CreateBuilder(args);` configure mais uma linha dessa forma:
 
 ```csharp
