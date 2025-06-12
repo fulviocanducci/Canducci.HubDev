@@ -1,6 +1,7 @@
 # Canducci HubDev
 
-[![NuGet Packages](https://github.com/fulviocanducci/Canducci.HubDev/actions/workflows/pack.yml/badge.svg)](https://github.com/fulviocanducci/Canducci.HubDev/actions/workflows/pack.yml)
+[![Version](https://img.shields.io/nuget/v/Canducci.HubDev.svg?style=plastic&label=version)](https://www.nuget.org/packages/Canducci.HubDev/)
+[![NuGet](https://img.shields.io/nuget/dt/Canducci.HubDev.svg)](https://www.nuget.org/packages/Canducci.HubDev/) [![NuGet Packages](https://github.com/fulviocanducci/Canducci.HubDev/actions/workflows/pack.yml/badge.svg)](https://github.com/fulviocanducci/Canducci.HubDev/actions/workflows/pack.yml)
 
 ##### _Pacote .NET para integraçao com a API do site:_ `https://www.hubdodesenvolvedor.com.br`
 
