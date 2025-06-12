@@ -7,12 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.HubDev", "Canducci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.HubDev.Web", "Canducci.HubDev.Web\Canducci.HubDev.Web.csproj", "{580210DF-D5D5-4E24-A753-BB671B42B6C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanducciTestPrj", "CanducciTestPrj\CanducciTestPrj.csproj", "{A369D9AD-9090-429A-A184-ABFEDF15398B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\pack.yml = .github\workflows\pack.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.HubDev.Tests", "Canducci.HubDev.Tests\Canducci.HubDev.Tests.csproj", "{C85974D1-5B0D-42BD-A5E6-F3E0FCE9AC43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +28,10 @@ Global
 		{580210DF-D5D5-4E24-A753-BB671B42B6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{580210DF-D5D5-4E24-A753-BB671B42B6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{580210DF-D5D5-4E24-A753-BB671B42B6C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A369D9AD-9090-429A-A184-ABFEDF15398B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A369D9AD-9090-429A-A184-ABFEDF15398B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A369D9AD-9090-429A-A184-ABFEDF15398B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A369D9AD-9090-429A-A184-ABFEDF15398B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C85974D1-5B0D-42BD-A5E6-F3E0FCE9AC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85974D1-5B0D-42BD-A5E6-F3E0FCE9AC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85974D1-5B0D-42BD-A5E6-F3E0FCE9AC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85974D1-5B0D-42BD-A5E6-F3E0FCE9AC43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
