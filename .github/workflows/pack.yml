@@ -31,4 +31,9 @@ jobs:
           dotnet pack Canducci.HubDev.Web/Canducci.HubDev.Web.csproj --configuration Release --no-build -o ./nupkg
 
       - name: Publicar no NuGet
-        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        shell: pwsh
+        run: |
+            $packages = Get-ChildItem -Path ./nupkg -Filter *.nupkg
+            foreach ($pkg in $packages) {
+                dotnet nuget push $pkg.FullName --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+            }
