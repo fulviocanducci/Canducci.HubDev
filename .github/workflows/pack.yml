@@ -1,4 +1,4 @@
-name: Build, Test and Publish NuGet Packages
+name: Canducci Hub Dev
 
 on:
   workflow_dispatch:
