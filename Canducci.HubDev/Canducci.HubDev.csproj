@@ -4,8 +4,8 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>Canducci HubDev</Title>
 		<Authors>Canducci</Authors>
-		<AssemblyVersion>1.0.3</AssemblyVersion>
-		<Version>1.0.3</Version>
+		<AssemblyVersion>1.0.4</AssemblyVersion>
+		<Version>1.0.4</Version>
 		<Company>Canducci</Company> 
 		<Description>Canducci HubDev</Description>
 		<Copyright>Canducci HubDev</Copyright>		
