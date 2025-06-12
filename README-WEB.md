@@ -59,4 +59,4 @@ public class HomeController : Controller
     ...
 ```
 
-#### [`A documentação do pacote e seus retornos nesse link`](https://github.com/fulviocanducci/Canducci.HubDev/blob/master/README.md).
+:rocket: [`A documentação do pacote e seus retornos nesse link`](https://github.com/fulviocanducci/Canducci.HubDev/blob/master/README.md).
