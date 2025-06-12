@@ -5,8 +5,8 @@
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Title>Canducci HubDev Web Extension</Title>
 	  <Authors>Canducci</Authors>
-	  <AssemblyVersion>1.0.4</AssemblyVersion>
-	  <Version>1.0.4</Version>
+	  <AssemblyVersion>1.0.4.1</AssemblyVersion>
+	  <Version>1.0.4.1</Version>
 	  <Company>Canducci</Company>
 	  <Description>Canducci HubDev</Description>
 	  <Copyright>Canducci HubDev</Copyright>	  
@@ -14,7 +14,7 @@
 	  <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.HubDev</PackageProjectUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageIcon>ico.png</PackageIcon>
-	  <PackageReadmeFile>readme.md</PackageReadmeFile>
+	  <PackageReadmeFile>README-WEB.md</PackageReadmeFile>
 	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
@@ -25,7 +25,7 @@
 			<PackagePath>\</PackagePath>
 		</None>
 		<None Include="..\ico.png" Pack="true" PackagePath="\" />
-		<None Include="..\readme.md" Pack="true" PackagePath="\" />
+		<None Include="..\README-WEB.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
