@@ -54,5 +54,33 @@ namespace Canducci.HubDev.Internals
             }
             return default;
         }
+
+        public string GetString(string url)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            string result = null;
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        result = reader.ReadToEnd();
+                    }
+                }
+            }
+            return result;
+        }
+
+        public T GetObject<T>(string url)
+        {
+            string json = GetString(url);
+            if (!string.IsNullOrEmpty(json))
+            {
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            return default;
+        }
     }
 }

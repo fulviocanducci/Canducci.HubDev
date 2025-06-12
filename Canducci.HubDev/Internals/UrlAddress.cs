@@ -6,7 +6,7 @@ namespace Canducci.HubDev.Internals
         private const string UrlCNPJ = "http://ws.hubdodesenvolvedor.com.br/v2/cnpj/?cnpj={0}&token={1}";
         private const string UrlCNPJWithIE = "http://ws.hubdodesenvolvedor.com.br/v2/cnpj/?cnpj={0}&token={1}&ie=1";
         private const string UrlCPF = "https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={0}&data={1}&token={2}";
-        private const string UrlCEP = "https://ws.hubdodesenvolvedor.com.br/v2/cep3/?cep={0}&token={1}";
+        private const string UrlZip = "https://ws.hubdodesenvolvedor.com.br/v2/cep3/?cep={0}&token={1}";
         internal string GetUrlCNPJ(string cnpj, string token)
         {
             return string.Format(UrlCNPJ, cnpj, token);
@@ -19,9 +19,9 @@ namespace Canducci.HubDev.Internals
         {
             return string.Format(UrlCPF, cpf, birthdata.ToString("dd-MM-yyyy"), token);
         }
-        internal string GetUrlCEP(string zip, string token)
+        internal string GetUrlZip(string zip, string token)
         {
-            return string.Format(UrlCEP, zip, token);
+            return string.Format(UrlZip, zip, token);
         }
 
         private UrlAddress() { }
