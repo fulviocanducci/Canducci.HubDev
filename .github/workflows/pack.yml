@@ -1,20 +1,20 @@
-name: Publish NuGet Package
+name: Build, Test and Publish NuGet Packages
 
 on:
-  workflow_dispatch:  # Permite acionar manualmente via GitHub
+  workflow_dispatch:
 
 jobs:
-  build-and-publish:
+  build-test-pack-publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
-      - name: Setup do .NET
+      - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x' # ou 6.x / 7.x, conforme seu projeto
+          dotnet-version: '8.x'
 
       - name: Restaurar dependências
         run: dotnet restore
@@ -22,8 +22,13 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
-      - name: Empacotar
-        run: dotnet pack --configuration Release --no-build -o ./nupkg
+      - name: Testes
+        run: dotnet test Canducci.HubDev.Tests/Canducci.HubDev.Tests.csproj --configuration Release --no-build
+
+      - name: Empacotar pacotes
+        run: |
+          dotnet pack Canducci.HubDev/Canducci.HubDev.csproj --configuration Release --no-build -o ./nupkg
+          dotnet pack Canducci.HubDev.Web.Extension/Canducci.HubDev.Web.Extension.csproj --configuration Release --no-build -o ./nupkg
 
       - name: Publicar no NuGet
         run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
