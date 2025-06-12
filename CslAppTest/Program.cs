@@ -1,4 +1,5 @@
 ﻿using Canducci.HubDev;
+using DotNetEnv;
 using System;
 namespace CslAppTest
 {
@@ -8,7 +9,10 @@ namespace CslAppTest
         {
             try
             {
-                HubDev hubDev = new HubDev("174162690UAtcQEhNFX314445456");
+                Env.Load();
+                string apiKey = Environment.GetEnvironmentVariable("HUB_DEV");
+                //
+                HubDev hubDev = new HubDev(apiKey);
                 ZipSearch zipSearch = new ZipSearch(hubDev);
                 CpfSearch cpfSearch = new CpfSearch(hubDev);
                 CnpjSearch cnpjSearch = new CnpjSearch(hubDev);
