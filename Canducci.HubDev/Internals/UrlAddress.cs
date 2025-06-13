@@ -3,27 +3,36 @@ namespace Canducci.HubDev.Internals
 {
     internal class UrlAddress
     {
-        private const string UrlCNPJ = "http://ws.hubdodesenvolvedor.com.br/v2/cnpj/?cnpj={0}&token={1}";
-        private const string UrlCNPJWithIE = "http://ws.hubdodesenvolvedor.com.br/v2/cnpj/?cnpj={0}&token={1}&ie=1";
-        private const string UrlCPF = "https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={0}&data={1}&token={2}";
-        private const string UrlZip = "https://ws.hubdodesenvolvedor.com.br/v2/cep3/?cep={0}&token={1}";
+        private const string UrlBase = "https://ws.hubdodesenvolvedor.com.br/v2/";
+        private const string UrlCNPJ = "cnpj/?cnpj={0}&token={1}";
+        private const string UrlCNPJWithIE = "cnpj/?cnpj={0}&token={1}&ie=1";
+        private const string UrlCPF = "cpf/?cpf={0}&data={1}&token={2}";
+        private const string UrlZip = "cep3/?cep={0}&token={1}";
+        private const string UrlBalance = "saldo?info&token={0}";
+        internal string ConcateUrl(string url)
+        {
+            return UrlBase + url;
+        }
         internal string GetUrlCNPJ(string cnpj, string token)
         {
-            return string.Format(UrlCNPJ, cnpj, token);
+            return string.Format(ConcateUrl(UrlCNPJ), cnpj, token);
         }
         internal string GetUrlCNPJWithIE(string cnpj, string token)
         {
-            return string.Format(UrlCNPJWithIE, cnpj, token);
+            return string.Format(ConcateUrl(UrlCNPJWithIE), cnpj, token);
         }
         internal string GetUrlCPF(string cpf, DateTime birthdata, string token)
         {
-            return string.Format(UrlCPF, cpf, birthdata.ToString("dd-MM-yyyy"), token);
+            return string.Format(ConcateUrl(UrlCPF), cpf, birthdata.ToString("dd-MM-yyyy"), token);
         }
         internal string GetUrlZip(string zip, string token)
         {
-            return string.Format(UrlZip, zip, token);
+            return string.Format(ConcateUrl(UrlZip), zip, token);
         }
-
+        internal string GetUrlBalance(string token)
+        {
+            return string.Format(ConcateUrl(UrlBalance), token);
+        }
         private UrlAddress() { }
 
         private static readonly object _lock = new object();

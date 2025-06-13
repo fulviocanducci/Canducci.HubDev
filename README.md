@@ -187,3 +187,34 @@ List<PartnerDetailItem> PartnerDetails = new List<PartnerDetailItem>()
 // inscricoes_estaduais
 StateRegistrationItem StateRegistrations
 ```
+
+#### 4. Para utilizar `BalanceSearch` ou _Busca de Saldo do sua Conta__, pode fazer o seguinte:
+
+```csharp
+BalanceSearch balanceSearch = new BalanceSearch(hubDev);
+// Sem async
+BalanceResponse result = balanceSearch.Get();
+// Com async
+BalanceResponse result = await balanceSearch.GetAsync();
+```
+#### Resposta: `BalanceResponse`
+
+```csharp
+bool Status //status da requisição
+string ReturnMessage //Mensagem de retorno
+int Consumed //Quantidade de requisições consumidas
+BalanceResponse Result //Resultado da busca do saldo
+```
+#### Explicando `BalanceResponse`:
+```csharp
+// servidor_exclusivo
+string ExclusiveServer
+// token
+string Token
+// id
+string Id
+// saldo R$ 0,00
+string Saldo
+// status
+string Ativo 
+```

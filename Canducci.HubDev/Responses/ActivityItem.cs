@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 namespace Canducci.HubDev.Responses
 {
     public class ActivityItem
@@ -16,5 +17,4 @@ namespace Canducci.HubDev.Responses
         [JsonProperty("code")]
         public string Code { get; private set; }
     }
-
 }
