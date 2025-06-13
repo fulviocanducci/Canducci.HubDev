@@ -8,8 +8,8 @@
 	  <AssemblyVersion>1.0.4.2</AssemblyVersion>
 	  <Version>1.0.4.2</Version>
 	  <Company>Canducci</Company>
-	  <Description>Canducci HubDev</Description>
-	  <Copyright>Canducci HubDev</Copyright>	  
+	  <Description>Canducci HubDev Web</Description>
+	  <Copyright>Canducci HubDev Web</Copyright>	  
 	  <RepositoryUrl>https://github.com/fulviocanducci/Canducci.HubDev</RepositoryUrl>
 	  <PackageProjectUrl>https://github.com/fulviocanducci/Canducci.HubDev</PackageProjectUrl>
 	  <RepositoryType>git</RepositoryType>
