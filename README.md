@@ -218,3 +218,62 @@ string Saldo
 // status
 string Ativo 
 ```
+
+
+
+---
+
+#### 5. Para utilizar `CpfPlusSearch` ou _Busca completa de Cpf_, pode fazer o seguinte:
+
+```csharp
+CpfPlusSearch cpfPlusSearch = new CpfPlusSearch(hubDev);
+// Substitua pelo Cpf desejado
+// Sem async
+CpfPlusResponse result = cpfPlusSearch.Get("12345678900");
+// Com async
+CpfPlusResponse result = await cpfPlusSearch.GetAsync("12345678900");
+```
+
+#### Resposta: `CpfPlusResponse`
+
+```csharp
+bool Status //status da requisição
+string ReturnMessage //Mensagem de retorno
+int Consumed //Quantidade de requisições consumidas
+CpfPlusResponse Result //Resultado da busca de CPF
+```
+
+#### Explicando `CpfPlusResponse`:
+
+```csharp
+// codigoPessoa
+string PersonCode;
+// nomeCompleto
+string FullName;
+// genero
+string Gender;
+// dataDeNascimento
+DateTime? BirthDate;
+// documento
+string Document;
+// nomeDaMae
+string MothersName;
+// anos
+int Age;
+// zodiaco
+string Zodiac;
+// listaTelefones
+List<PhoneItem> PhoneList;
+// listaEnderecos
+List<AddressItem> AddressList;
+// listaEmails
+List<EmailItem> EmailList;
+// salarioEstimado
+string EstimatedSalary;
+// statusCadastral
+string RegistrationStatus;
+// dataStatusCadastral
+DateTime? RegistrationStatusDate;
+// lastUpdate
+DateTime? LastUpdate;
+```
