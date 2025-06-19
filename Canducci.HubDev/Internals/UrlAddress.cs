@@ -7,6 +7,7 @@ namespace Canducci.HubDev.Internals
         private const string UrlCNPJ = "cnpj/?cnpj={0}&token={1}";
         private const string UrlCNPJWithIE = "cnpj/?cnpj={0}&token={1}&ie=1";
         private const string UrlCPF = "cpf/?cpf={0}&data={1}&token={2}";
+        private const string UrlCPFPlus = "cadastropf/?cpf={1}&token={2}";
         private const string UrlZip = "cep3/?cep={0}&token={1}";
         private const string UrlBalance = "saldo?info&token={0}";
         internal string ConcateUrl(string url)
@@ -24,6 +25,10 @@ namespace Canducci.HubDev.Internals
         internal string GetUrlCPF(string cpf, DateTime birthdata, string token)
         {
             return string.Format(ConcateUrl(UrlCPF), cpf, birthdata.ToString("dd-MM-yyyy"), token);
+        }
+        internal string GetUrlCPFPlus(string cpf, string token)
+        {
+            return string.Format(ConcateUrl(UrlCPFPlus), cpf, token);
         }
         internal string GetUrlZip(string zip, string token)
         {

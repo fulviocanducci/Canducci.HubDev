@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 namespace Canducci.HubDev.Responses
 {
     public class CpfItem
