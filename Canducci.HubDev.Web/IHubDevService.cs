@@ -31,5 +31,9 @@ namespace Canducci.HubDev.Web
         /// Gets the search functionality for retrieving information based on ZIP codes.
         /// </summary>
         ZipSearch ZipSearch { get; }
+        /// <summary>
+        /// Gets the CPF Plus Search functionality, which provides advanced search capabilities for CPF-related data.
+        /// </summary>
+        CpfPlusSearch CpfPlusSearch { get; }
     }
 }

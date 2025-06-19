@@ -27,6 +27,7 @@ namespace Canducci.HubDev.Web.Extensions
             services.AddScoped<BalanceSearch>();
             services.AddScoped<CnpjSearch>();
             services.AddScoped<CpfSearch>();
+            services.AddScoped<CpfPlusSearch>();
             services.AddScoped<ZipSearch>();
             return services;
         }

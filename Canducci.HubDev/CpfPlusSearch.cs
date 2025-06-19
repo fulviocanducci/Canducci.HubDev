@@ -1,9 +1,15 @@
 ﻿using Canducci.HubDev.Internals;
 using Canducci.HubDev.Responses;
-using System;
 using System.Threading.Tasks;
 namespace Canducci.HubDev
 {
+    /// <summary>
+    /// Provides functionality to search and retrieve CPF Plus data using hub services.
+    /// </summary>
+    /// <remarks>The <see cref="CpfPlusSearch"/> class enables interaction with CPF Plus services, allowing
+    /// users to retrieve data associated with a specific CPF identifier. This class requires a properly initialized
+    /// <see cref="HubDev"/> instance for its operations. Use the <see cref="Create(string)"/> method to create an
+    /// instance with an authentication token, or initialize it directly with a <see cref="HubDev"/> instance.</remarks>
     public sealed class CpfPlusSearch
     {
         private readonly UrlAddress _urlAddress = UrlAddress.Instance;
@@ -11,33 +17,55 @@ namespace Canducci.HubDev
         private readonly HubDev _hubDev;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CpfSearch"/> class.
+        /// Initializes a new instance of the <see cref="CpfPlusSearch"/> class.
         /// </summary>
-        /// <remarks>The <paramref name="hubDev"/> parameter is required to interact with the underlying
-        /// hub for CPF searches. Ensure that the provided <see cref="HubDev"/> instance is properly initialized before
-        /// using this class.</remarks>
-        /// <param name="hubDev">The <see cref="HubDev"/> instance used to perform CPF-related operations.</param>
+        /// <remarks>The <see cref="CpfPlusSearch"/> class depends on the provided <see cref="HubDev"/>
+        /// instance for its operations. Ensure that the <paramref name="hubDev"/> parameter is properly initialized
+        /// before passing it to this constructor.</remarks>
+        /// <param name="hubDev">The <see cref="HubDev"/> instance used to interact with the underlying hub services.</param>
         public CpfPlusSearch(HubDev hubDev)
         {
             _hubDev = hubDev;
         }
 
-        public Task<CpfResponse> GetAsync(string cpf, DateTime birthdata)
+        /// <summary>
+        /// Retrieves a <see cref="CpfPlusResponse"/> object asynchronously for the specified CPF.
+        /// </summary>
+        /// <remarks>This method sends an HTTP GET request to retrieve the data associated with the
+        /// provided CPF. Ensure the CPF is valid and properly formatted before calling this method.</remarks>
+        /// <param name="cpf">The CPF identifier used to fetch the associated response. Must be a valid, non-null CPF string.</param>
+        /// <returns>A task representing the asynchronous operation. The task result contains the <see cref="CpfPlusResponse"/>
+        /// object corresponding to the specified CPF.</returns>
+        public Task<CpfPlusResponse> GetAsync(string cpf)
         {
-            return _httpClient.GetObjectAsync<CpfResponse>(GetRenderUrl(cpf, birthdata));
+            return _httpClient.GetObjectAsync<CpfPlusResponse>(GetRenderUrl(cpf));
         }
-        public CpfResponse Get(string cpf, DateTime birthdata)
+
+        /// <summary>
+        /// Retrieves a <see cref="CpfPlusResponse"/> object for the specified CPF.
+        /// </summary>
+        /// <param name="cpf">The CPF (Cadastro de Pessoas Físicas) identifier for which the response is requested. Cannot be null or
+        /// empty.</param>
+        /// <returns>A <see cref="CpfPlusResponse"/> object containing the data associated with the specified CPF.</returns>
+        public CpfPlusResponse Get(string cpf)
         {
-            return _httpClient.GetObject<CpfResponse>(GetRenderUrl(cpf, birthdata));
+            return _httpClient.GetObject<CpfPlusResponse>(GetRenderUrl(cpf));
         }
-        public static CpfSearch Create(string token)
+
+        /// <summary>
+        /// Creates a new instance of the <see cref="CpfPlusSearch"/> class using the specified authentication token.
+        /// </summary>
+        /// <param name="token">The authentication token used to initialize the <see cref="HubDev"/> instance. Cannot be null or empty.</param>
+        /// <returns>A new <see cref="CpfPlusSearch"/> instance configured with the provided token.</returns>
+        public static CpfPlusSearch Create(string token)
         {
-            return new CpfSearch(new HubDev(token));
+            return new CpfPlusSearch(new HubDev(token));
         }
+
         #region private
-        private string GetRenderUrl(string cpf, DateTime birthdata)
+        private string GetRenderUrl(string cpf)
         {
-            return _urlAddress.GetUrlCPF(cpf, birthdata, _hubDev.Token);
+            return _urlAddress.GetUrlCPFPlus(cpf, _hubDev.Token);
         }
         #endregion
     }
