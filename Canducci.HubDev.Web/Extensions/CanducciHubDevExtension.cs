@@ -17,13 +17,13 @@ namespace Canducci.HubDev.Web.Extensions
         /// <param name="token">The authentication token required to initialize the Canducci Hub Dev services.  Cannot be null or empty.</param>
         /// <returns>The updated <see cref="IServiceCollection"/> instance.</returns>
         /// <exception cref="ArgumentException">Thrown if <paramref name="token"/> is null or empty.</exception>
-        public static IServiceCollection AddCanducciHubDev(this IServiceCollection services, string token)
+        public static IServiceCollection AddCanducciHubDev(this IServiceCollection services, string token, string contract = default)
         {
             if (string.IsNullOrEmpty(token))
             {
                 throw new ArgumentException($"'{nameof(token)}' cannot be null or empty.", nameof(token));
             }
-            services.AddSingleton(hubDev => new HubDev(token));
+            services.AddSingleton(hubDev => new HubDev(token, contract));
             services.AddScoped<BalanceSearch>();
             services.AddScoped<CnpjSearch>();
             services.AddScoped<CpfSearch>();
@@ -41,9 +41,9 @@ namespace Canducci.HubDev.Web.Extensions
         /// <param name="services">The <see cref="IServiceCollection"/> to which the service will be added.</param>
         /// <param name="token">The authentication token required to configure the Canducci Hub Dev service. Cannot be null or empty.</param>
         /// <returns>The updated <see cref="IServiceCollection"/> instance.</returns>
-        public static IServiceCollection AddCanducciHubDevService(this IServiceCollection services, string token)
+        public static IServiceCollection AddCanducciHubDevService(this IServiceCollection services, string token, string contract = default)
         {
-            services.AddCanducciHubDev(token);
+            services.AddCanducciHubDev(token, contract);
             services.AddScoped<IHubDevService, HubDevService>();
             return services;
         }
