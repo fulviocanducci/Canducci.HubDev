@@ -20,7 +20,7 @@ namespace Canducci.HubDev.Responses
             List<PhoneItem> phoneList,
             List<AddressItem> addressList,
             List<EmailItem> emailList,
-            string estimatedSalary,
+            decimal estimatedSalary,
             string registrationStatus,
             DateTime? registrationStatusDate,
             DateTime? lastUpdate
@@ -78,7 +78,8 @@ namespace Canducci.HubDev.Responses
         public List<EmailItem> EmailList { get; private set; }
 
         [JsonProperty("salarioEstimado")]
-        public string EstimatedSalary { get; private set; }
+        [JsonConverter(typeof(BrazilianDecimalConverter))]
+        public decimal EstimatedSalary { get; private set; }
 
         [JsonProperty("statusCadastral")]
         public string RegistrationStatus { get; private set; }
