@@ -8,18 +8,30 @@
     public sealed class HubDev
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HubDev"/> class using the specified authentication token.
+        /// Initializes a new instance of the <see cref="HubDev"/> class with the specified token and contract.
         /// </summary>
-        /// <param name="token">The authentication token used to connect to the HubDev service.  This token must be a valid, non-empty
-        /// string.</param>
-        public HubDev(string token)
+        /// <remarks>Both <paramref name="token"/> and <paramref name="contract"/> must be valid and
+        /// non-null. Ensure that the provided token has the necessary permissions for the specified contract.</remarks>
+        /// <param name="token">The authentication token used to access the hub.</param>
+        /// <param name="contract">The contract identifier associated with the hub.</param>
+        public HubDev(string token, string contract = default)
         {
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new System.ArgumentException($"'{nameof(token)}' cannot be null or empty.", nameof(token));
+            }
             Token = token;
+            Contract = contract;
         }
 
         /// <summary>
         /// Gets the authentication token used for accessing secured resources.
         /// </summary>
         public string Token { get; private set; }
+
+        /// <summary>
+        /// Gets the contract identifier associated with the current instance.
+        /// </summary>
+        public string Contract { get; private set; }
     }
 }

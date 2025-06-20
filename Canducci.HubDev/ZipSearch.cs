@@ -26,7 +26,13 @@ namespace Canducci.HubDev
         {
             _hubDev = hubDev;
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ZipSearch"/> class using the specified authentication token.
+        /// </summary>
+        /// <param name="token">The authentication token used to access the API. Cannot be null or empty.</param>
+        public ZipSearch(string token) : this(new HubDev(token)) { }
+
         /// <summary>
         /// Retrieves information about a ZIP code asynchronously.
         /// </summary>
@@ -56,7 +62,7 @@ namespace Canducci.HubDev
         /// <returns>A new instance of the <see cref="ZipSearch"/> class.</returns>
         public static ZipSearch Create(string token)
         {
-            return new ZipSearch(new HubDev(token));
+            return Create(new HubDev(token));
         }
 
         /// <summary>
@@ -71,7 +77,7 @@ namespace Canducci.HubDev
         }
 
         #region private
-        private string GetRenderUrl(string zip) 
+        private string GetRenderUrl(string zip)
         {
             return _urlAddress.GetUrlZip(zip, _hubDev.Token);
         }

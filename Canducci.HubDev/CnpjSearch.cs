@@ -25,7 +25,19 @@ namespace Canducci.HubDev
         /// <param name="hubDev">The <see cref="HubDev"/> instance used to perform CNPJ-related operations.</param>
         public CnpjSearch(HubDev hubDev)
         {
-            _hubDev = hubDev;
+            _hubDev = hubDev ?? throw new System.ArgumentNullException(nameof(hubDev));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CnpjSearch"/> class using the specified authentication token.
+        /// </summary>
+        /// <param name="token">The authentication token used to access the CNPJ search service. Cannot be null or empty.</param>
+        public CnpjSearch(string token) : this(new HubDev(token))
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new System.ArgumentException($"'{nameof(token)}' cannot be null or empty.", nameof(token));
+            }
         }
 
         /// <summary>
@@ -39,7 +51,7 @@ namespace Canducci.HubDev
         /// <returns>A task that represents the asynchronous operation. The task result contains a <see cref="CnpjResponse"/>
         /// object with the company's information.</returns>
         public Task<CnpjResponse> GetAsync(string cnpj, bool stateRegistration = false)
-        {            
+        {
             return _httpClient.GetObjectAsync<CnpjResponse>(GetRenderUrl(cnpj, stateRegistration));
         }
 
@@ -51,7 +63,7 @@ namespace Canducci.HubDev
         /// langword="true"/> to include state registration details; otherwise, <see langword="false"/>.</param>
         /// <returns>A <see cref="CnpjResponse"/> object containing the company's information, including registration details.</returns>
         public CnpjResponse Get(string cnpj, bool stateRegistration = false)
-        {            
+        {
             return _httpClient.GetObject<CnpjResponse>(GetRenderUrl(cnpj, stateRegistration));
         }
 
@@ -62,7 +74,7 @@ namespace Canducci.HubDev
         /// <returns>A new <see cref="CnpjSearch"/> instance configured with the provided token.</returns>
         public static CnpjSearch Create(string token)
         {
-            return new CnpjSearch(new HubDev(token));
+            return Create(new HubDev(token));
         }
 
         /// <summary>

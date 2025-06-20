@@ -25,7 +25,20 @@ namespace Canducci.HubDev
         /// <param name="hubDev">The <see cref="HubDev"/> instance used to interact with the underlying hub services.</param>
         public CpfPlusSearch(HubDev hubDev)
         {
-            _hubDev = hubDev;
+            _hubDev = hubDev ?? throw new System.ArgumentNullException(nameof(hubDev));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CpfPlusSearch"/> class using the specified token and contract.
+        /// </summary>
+        /// <param name="token">The authentication token used to access the service. This parameter is required and cannot be null or empty.</param>
+        /// <param name="contract">The contract identifier associated with the service. If not specified, the default contract will be used.</param>
+        public CpfPlusSearch(string token, string contract = default) : this(new HubDev(token, contract))
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new System.ArgumentException($"'{nameof(token)}' cannot be null or empty.", nameof(token));
+            }
         }
 
         /// <summary>
@@ -57,15 +70,26 @@ namespace Canducci.HubDev
         /// </summary>
         /// <param name="token">The authentication token used to initialize the <see cref="HubDev"/> instance. Cannot be null or empty.</param>
         /// <returns>A new <see cref="CpfPlusSearch"/> instance configured with the provided token.</returns>
-        public static CpfPlusSearch Create(string token)
+        public static CpfPlusSearch Create(string token, string contract = default)
         {
-            return new CpfPlusSearch(new HubDev(token));
+            return Create(new HubDev(token, contract));
+        }
+
+        /// <summary>
+        /// Creates a new instance of the <see cref="CpfPlusSearch"/> class using the specified <see cref="HubDev"/>
+        /// instance.
+        /// </summary>
+        /// <param name="hubDev">The <see cref="HubDev"/> instance used to initialize the <see cref="CpfPlusSearch"/> object. Cannot be null.</param>
+        /// <returns>A new <see cref="CpfPlusSearch"/> object initialized with the provided <see cref="HubDev"/> instance.</returns>
+        public static CpfPlusSearch Create(HubDev hubDev)
+        {
+            return new CpfPlusSearch(hubDev);
         }
 
         #region private
         private string GetRenderUrl(string cpf)
         {
-            return _urlAddress.GetUrlCPFPlus(cpf, _hubDev.Token);
+            return _urlAddress.GetUrlCPFPlus(cpf, _hubDev.Token, _hubDev.Contract);
         }
         #endregion
     }

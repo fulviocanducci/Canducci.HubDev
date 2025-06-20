@@ -23,7 +23,7 @@ namespace Canducci.HubDev.Web.Extensions
             {
                 throw new ArgumentException($"'{nameof(token)}' cannot be null or empty.", nameof(token));
             }
-            services.AddScoped(hubDev => new HubDev(token));
+            services.AddSingleton(hubDev => new HubDev(token));
             services.AddScoped<BalanceSearch>();
             services.AddScoped<CnpjSearch>();
             services.AddScoped<CpfSearch>();

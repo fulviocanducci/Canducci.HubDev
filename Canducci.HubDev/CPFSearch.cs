@@ -25,7 +25,20 @@ namespace Canducci.HubDev
         /// <param name="hubDev">The <see cref="HubDev"/> instance used to perform CPF-related operations.</param>
         public CpfSearch(HubDev hubDev)
         {
-            _hubDev = hubDev;
+            _hubDev = hubDev ?? throw new ArgumentNullException(nameof(hubDev));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CpfSearch"/> class using the specified authentication token.
+        /// </summary>
+        /// <param name="token">The authentication token used to access the CPF search service.  This token must be a valid string and
+        /// cannot be null or empty.</param>
+        public CpfSearch(string token) : this(new HubDev(token))
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new ArgumentException($"'{nameof(token)}' cannot be null or empty.", nameof(token));
+            }
         }
 
         /// <summary>
@@ -62,7 +75,7 @@ namespace Canducci.HubDev
         /// <returns>A new <see cref="CpfSearch"/> object initialized with the provided token.</returns>
         public static CpfSearch Create(string token)
         {
-            return new CpfSearch(new HubDev(token));
+            return Create(new HubDev(token));
         }
 
         /// <summary>
