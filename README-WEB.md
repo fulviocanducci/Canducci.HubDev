@@ -29,7 +29,7 @@ public static void Main(string[] args)
     // Add services to the container.
     builder.Services.AddControllersWithViews();
     // Add services Canducci HubDev
-    builder.Services.AddCanducciHubDevService("seu token aqui");
+    builder.Services.AddCanducciHubDevService("seu token aqui", "se tiver contrato aqui (opcional)");
     var app = builder.Build();
 
     ...
