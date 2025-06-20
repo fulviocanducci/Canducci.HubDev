@@ -16,7 +16,18 @@ dotnet add package Canducci.HubDev
 ```csharp
 // Substitua pelo seu token de autenticão"
 string token = "seu token aqui";
-HubDev hubDev = new HubDev(token);
+string contract = "seu contrato token aqui se possuir"; 
+HubDev hubDev = new HubDev(token); // Se não possuir contrato, utilize essa linha.
+HubDev hubDev = new HubDev(token, contract); // Se possuir contrato, utilize essa linha.
+
+// Ou, se preferir, pode utilizar o modo Singleton ou instância única.
+
+// Agora existe o modo Singleton ou instância única, exemplo:
+HubDev.SetInstance("token"); // Se não possuir contrato, utilize essa linha.
+HubDev.SetInstance("token", "contract"); // Se possuir contrato, utilize essa linha.
+
+// Para utilizar
+HubDev hubDev = HubDev.Instance; //Chame o método Instance para obter a instância única.
 ```
 
 #### 1. Para utilizar `ZipSearch` ou _Busca de Cep_, pode fazer o seguinte:

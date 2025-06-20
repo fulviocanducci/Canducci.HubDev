@@ -13,6 +13,17 @@
         }
 
         [TestMethod]
+        public void TestMethodCreateInstanceHuvDevSingleton()
+        {
+            HubDev.SetInstance("token");
+            Assert.IsNotNull(HubDev.Instance);
+            Assert.IsNull(HubDev.Instance.Contract);
+            Assert.AreEqual("token", HubDev.Instance.Token);
+            Assert.IsInstanceOfType<HubDev>(HubDev.Instance);
+            Assert.IsTrue(Guid.TryParse(HubDev.Instance.Id, out _));
+        }
+
+        [TestMethod]
         public void TestMethodCreateInstanceBalanceSearch()
         {
             HubDev hubDev = new HubDev("token");            
