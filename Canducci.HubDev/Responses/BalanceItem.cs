@@ -5,12 +5,13 @@ namespace Canducci.HubDev.Responses
     public class BalanceItem
     {
         [JsonConstructor]
-        public BalanceItem(string exclusiveServer, string token, string id, string saldo, string ativo)
+        public BalanceItem(string exclusiveServer, string token, string id, string saldo, string saldoRegistration, string ativo)
         {
             ExclusiveServer = exclusiveServer;
             Token = token;
             Id = id;
             Saldo = saldo;
+            SaldoRegistration = saldoRegistration;
             Ativo = ativo;
         }
 
@@ -25,6 +26,9 @@ namespace Canducci.HubDev.Responses
 
         [JsonProperty("saldo")]
         public string Saldo { get; private set; }
+
+        [JsonProperty("saldo_cadastrais")]
+        public string SaldoRegistration { get; private set; }
 
         [JsonProperty("ativo")]
         public string Ativo { get; private set; }

@@ -5,8 +5,8 @@
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Title>Canducci HubDev Web Extension</Title>
 	  <Authors>Canducci</Authors>
-	  <AssemblyVersion>1.0.4.4</AssemblyVersion>
-	  <Version>1.0.4.4</Version>
+	  <AssemblyVersion>1.0.4.5</AssemblyVersion>
+	  <Version>1.0.4.5</Version>
 	  <Company>Canducci</Company>
 	  <Description>Canducci HubDev Web</Description>
 	  <Copyright>Canducci HubDev Web</Copyright>	  
